@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Каталог ноутбуков</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="container">
+    <header>
+      <div>
+        <p class="eyebrow">SUPABASE DATABASE</p>
+        <h1>Каталог ноутбуков</h1>
+        <p class="description">Список устройств из базы данных</p>
+      </div>
+      <button id="refresh">Обновить</button>
+    </header>
+
+    <section class="stats">
+      <div class="stat-card">
+        <span>Всего ноутбуков</span>
+        <strong id="count">—</strong>
+      </div>
+      <div class="stat-card">
+        <span>Подключение</span>
+        <strong id="status">Загрузка...</strong>
+      </div>
+    </section>
+
+    <section class="table-card">
+      <div class="table-header">
+        <h2>Все устройства</h2>
+        <span id="records">0 записей</span>
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Название</th>
+              <th>Цена</th>
+            </tr>
+          </thead>
+          <tbody id="laptops">
+            <tr>
+              <td colspan="3" class="message">Загрузка данных...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p id="error" class="error" hidden></p>
+    </section>
+
+    <footer>
+      <span class="dot"></span>
+      Данные загружаются напрямую из Supabase
+    </footer>
+  </main>
+</body>
+</html>
