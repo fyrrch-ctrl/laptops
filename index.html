@@ -3,63 +3,93 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Каталог ноутбуков</title>
-  <link rel="stylesheet" href="style.css">
+
+  <link rel="stylesheet" href="./style.css">
+
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="script.js" defer></script>
+  <script src="./script.js" defer></script>
 </head>
+
 <body>
   <main class="container">
-    <header>
-      <div>
+
+    <header class="page-header">
+      <div class="header-content">
         <p class="eyebrow">SUPABASE DATABASE</p>
         <h1>Каталог ноутбуков</h1>
-        <p class="description">Список устройств из базы данных</p>
+        <p class="description">
+          Список устройств из базы данных
+        </p>
       </div>
-      <button id="refresh">Обновить</button>
+
+      <button id="refresh" type="button">
+        <span class="refresh-icon">↻</span>
+        Обновить данные
+      </button>
     </header>
 
     <section class="stats">
       <div class="stat-card">
-        <span>Всего ноутбуков</span>
+        <span class="stat-label">Всего ноутбуков</span>
         <strong id="count">—</strong>
+        <span class="stat-description">Записей в базе данных</span>
       </div>
+
       <div class="stat-card">
-        <span>Подключение</span>
-        <strong id="status">Загрузка...</strong>
+        <span class="stat-label">Подключение к базе</span>
+        <strong id="status" class="status-loading">
+          Загрузка...
+        </strong>
+        <span class="stat-description">
+          Supabase PostgreSQL
+        </span>
       </div>
     </section>
 
     <section class="table-card">
+
       <div class="table-header">
-        <h2>Все устройства</h2>
-        <span id="records">0 записей</span>
+        <div>
+          <h2>Все устройства</h2>
+          <p class="table-description">
+            Данные из таблицы laptops
+          </p>
+        </div>
+
+        <span id="records" class="records-badge">
+          0 записей
+        </span>
       </div>
 
       <div class="table-wrapper">
         <table>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Название</th>
-              <th>Цена</th>
-            </tr>
+          <thead id="table-head">
+            <!-- Шапка формируется в script.js -->
           </thead>
+
           <tbody id="laptops">
             <tr>
-              <td colspan="3" class="message">Загрузка данных...</td>
+              <td class="message">
+                Загрузка данных...
+              </td>
             </tr>
           </tbody>
         </table>
       </div>
 
-      <p id="error" class="error" hidden></p>
+      <div id="error" class="error" hidden></div>
+
     </section>
 
-    <footer>
-      <span class="dot"></span>
-      Данные загружаются напрямую из Supabase
+    <footer class="footer">
+      <span class="footer-dot"></span>
+      <span>Данные загружаются напрямую из Supabase</span>
+      <span class="footer-separator">·</span>
+      <span>GitHub Pages</span>
     </footer>
+
   </main>
 </body>
 </html>
